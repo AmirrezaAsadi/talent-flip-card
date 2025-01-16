@@ -52,7 +52,7 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
       ref={cardRef}
       className={`
         preserve-3d cursor-pointer
-        ${isExpanded ? 'fixed top-0 left-0 w-full h-full z-50' : 'w-[300px] h-[400px]'}
+        ${isExpanded ? 'fixed top-0 left-0 w-full h-full z-50 p-4 md:p-8 lg:p-12' : 'w-[300px] h-[400px]'}
         ${isFlipped ? 'animate-card-flip' : 'animate-card-flip-back'}
       `}
       onClick={handleClick}
@@ -85,7 +85,7 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
           overflow-auto
         `}
       >
-        <div className="relative p-8">
+        <div className="relative p-8 max-w-6xl mx-auto">
           <Button
             variant="ghost"
             size="icon"
