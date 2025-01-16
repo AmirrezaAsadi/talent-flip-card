@@ -2,19 +2,20 @@ import { FlippableCard } from "@/components/FlippableCard";
 
 const profileData = {
   name: "Sarah Anderson",
-  role: "Senior UX Designer",
+  role: "Developer",
   avatar: "https://ui-avatars.com/api/?name=Sarah+Anderson&background=random",
-  description: "Passionate UX designer with 8+ years of experience creating user-centered digital experiences. Specialized in mobile applications and web interfaces, with a strong focus on accessibility and inclusive design.",
+  description: "Passionate developer with 8+ years of experience in full-stack development. Specialized in React, Node.js, and cloud technologies, with a strong focus on building scalable and maintainable applications.",
   skills: [
-    "UI/UX Design",
-    "Figma",
-    "User Research",
-    "Prototyping",
-    "Design Systems",
-    "Accessibility",
-    "Adobe Creative Suite",
-    "Motion Design"
-  ]
+    "React",
+    "Node.js",
+    "TypeScript",
+    "AWS",
+    "Docker",
+    "GraphQL",
+    "MongoDB",
+    "Git"
+  ],
+  match: 90
 };
 
 const Index = () => {

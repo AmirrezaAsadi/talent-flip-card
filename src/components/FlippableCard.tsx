@@ -9,6 +9,7 @@ interface ProfileData {
   avatar: string;
   description: string;
   skills: string[];
+  match: number;
 }
 
 interface FlippableCardProps {
@@ -31,7 +32,7 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
           document.documentElement.style.setProperty('--card-height', `${rect.height}px`);
           setIsExpanded(true);
         }
-      }, 600); // Wait for flip animation to complete
+      }, 600);
       return () => clearTimeout(timer);
     }
   }, [isFlipped]);
@@ -52,7 +53,7 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
       ref={cardRef}
       className={`
         preserve-3d cursor-pointer
-        ${isExpanded ? 'fixed top-0 left-0 w-full h-full z-50 p-4 md:p-8 lg:p-12' : 'w-[300px] h-[400px]'}
+        ${isExpanded ? 'fixed top-4 left-4 right-4 bottom-4 z-50 m-4' : 'w-[300px] h-[400px]'}
         ${isFlipped ? 'animate-card-flip' : 'animate-card-flip-back'}
       `}
       onClick={handleClick}
@@ -73,6 +74,9 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
         </Avatar>
         <h2 className="text-2xl font-bold text-white">{profile.name}</h2>
         <p className="text-white/90">{profile.role}</p>
+        <div className="bg-white/20 px-3 py-1 rounded-full">
+          <span className="text-white font-semibold">{profile.match}% Match</span>
+        </div>
         <p className="text-sm text-white/80">Click to view profile</p>
       </div>
 
@@ -85,7 +89,7 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
           overflow-auto
         `}
       >
-        <div className="relative p-8 max-w-6xl mx-auto">
+        <div className="relative p-8 max-w-6xl mx-auto bg-white/80 rounded-xl backdrop-blur-sm shadow-xl m-4">
           <Button
             variant="ghost"
             size="icon"
@@ -102,6 +106,9 @@ export const FlippableCard = ({ profile }: FlippableCardProps) => {
             </Avatar>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">{profile.name}</h1>
             <p className="text-xl text-gray-600 mb-4">{profile.role}</p>
+            <div className="bg-purple-100 px-4 py-2 rounded-full mb-6">
+              <span className="text-purple-800 font-semibold">{profile.match}% Match</span>
+            </div>
             <p className="text-gray-700 max-w-2xl text-center mb-8">
               {profile.description}
             </p>
